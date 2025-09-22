@@ -6,7 +6,7 @@ const tablaBody = document.getElementById("tabla-body");
 
 let productos = [];
 let id = 1;
-let editandoId = null; // <- aquí guardamos el id del producto en edición
+let editandoId = null;
 
 // Cargar datos desde JSON
 async function cargarDatos() {
@@ -61,7 +61,7 @@ function crear(descripcion, precio, stock) {
   renderTabla();
 }
 
-// Editar producto (abrir modal con datos cargados)
+// Editar producto
 function editar(pid) {
   const producto = productos.find((p) => p.id === pid);
   if (!producto) return;
@@ -80,7 +80,7 @@ function eliminar(pid) {
   renderTabla();
 }
 
-// Guardar formulario (crear o editar)
+// Guardar formulario
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -123,5 +123,5 @@ btnCerrarModal.addEventListener("click", () => {
   modal.classList.add("hidden");
 });
 
-// Iniciar
+
 cargarDatos();
